@@ -32,6 +32,25 @@ app.post('/api/orden', (req, res)=>{
 
 });
 
+app.get('/api/orden', (req, res)=>{
+
+    const id = req.params.id;
+
+    Orden.find()
+        .populate('cliente producto producto.grupo')
+        .exec((err, orden)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        res.json(orden)
+    });
+
+});
+
 app.get('/api/orden/:id', (req, res)=>{
 
     const id = req.params.id;

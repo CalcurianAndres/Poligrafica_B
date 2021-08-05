@@ -12,7 +12,10 @@ app.post('/api/nuevo-producto', (req, res)=>{
         cliente   :body.cliente,
         grupo     :body.grupo,
         producto  :body.producto,
-        materiales:body.materiales
+        materiales:body.materiales,
+        post      :body.post,
+        troquel   :body.troquel,
+        ejemplares:body.ejemplares
     });
 
     nuevoProducto.save((err, ProductoDB)=>{

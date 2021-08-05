@@ -16,6 +16,15 @@ let ProductoFinal = new Schema([{
             },
             materiales: {
                 type:Array
+            },
+            post: {
+                type:String
+            },
+            troquel: {
+                type:String
+            },
+            ejemplares: {
+                type:String
             }
 }]);
 
