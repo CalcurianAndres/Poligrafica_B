@@ -64,7 +64,7 @@ app.get('/api/orden/etapa/:id', (req, res)=>{
 app.get('/api/trabajos', (req, res)=>{
     Trabajo.find()
             .populate('maquina')
-            .populate({path:'orden', populate:{path: 'orden.producto', select:'producto ejemplares'}})
+            .populate({path:'orden', populate:{path: 'producto', select:'producto ejemplares'}})
             .exec((err, trabajosDB)=>{
                 if( err ){
                     return res.status(400).json({

@@ -4,7 +4,7 @@ let Schema = mongoose.Schema;
 
 var CounterSchema = new mongoose.Schema({
     _id: {type: String, required:true},
-    seq: {type: Number, default: 0}
+    seq: {type: Number, default: 2021000}
 });
 
 var counter = mongoose.model('counter', CounterSchema);
@@ -50,6 +50,5 @@ OrdenSchema.pre('save', function(next){
         throw error;
     });
 });
-
 
 module.exports = mongoose.model('orden', OrdenSchema)

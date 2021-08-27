@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Counter = require('../database/models/orden.model');
 
 mongoose.connect(process.env.DB_URL, {
     useNewUrlParser:true,
