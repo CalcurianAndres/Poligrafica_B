@@ -7,10 +7,13 @@ let TrabajoSchema = new Schema([{
                 type:Schema.Types.ObjectId,
                 ref: 'maquina'
             },
+            fechaI:{
+                type:String,
+            },
             fecha:{
                 type:String,
             },
-            OrdenProduccion :{
+            orden :{
                 type:Schema.Types.ObjectId,
                 ref: 'orden'
             },

@@ -47,6 +47,57 @@ app.get('/api/trabajos/:id', (req, res)=>{
 
 });
 
+app.get('/api/orden/etapa/:id', (req, res)=>{
+    Trabajo.find({orden:req.params.id})
+            .exec((err, trabajosDB)=>{
+                if( err ){
+                    return res.status(400).json({
+                        ok:false,
+                        err
+                    });
+                }
+
+                res.json(trabajosDB)
+            }) 
+});
+
+app.get('/api/trabajos', (req, res)=>{
+    Trabajo.find()
+            .populate('maquina')
+            .populate({path:'orden', populate:{path: 'orden.producto', select:'producto ejemplares'}})
+            .exec((err, trabajosDB)=>{
+                if( err ){
+                    return res.status(400).json({
+                        ok:false,
+                        err
+                    });
+                }
+
+                res.json(trabajosDB)
+            });
+});
+
+app.post('/api/gestion', (req, res)=>{
+
+    const body = req.body;
+
+
+
+    Trabajo.find({fechaI: {$and:[{$gte:body.fecha}, {$lte:body.fecha}]}})
+            .populate('maquina')
+            .populate({path:'orden', populate:{path: 'orden.producto', select:'producto ejemplares'}})
+            .exec((err, trabajosDB)=>{
+                if( err ){
+                    return res.status(400).json({
+                        ok:false,
+                        err
+                    });
+                }
+
+                res.json(trabajosDB)
+            });
+});
+
 app.post('/api/trabajos', (req, res)=>{
     // maquina:{
     //     type:Schema.Types.ObjectId,
@@ -64,8 +115,9 @@ app.post('/api/trabajos', (req, res)=>{
 
     const NewOrden = new Trabajo({
         maquina:body.maquina,
+        fechaI:body.fechaI,
         fecha:body.fecha,
-        OrdenProduccion:body.orden
+        orden:body.orden
     })
 
     NewOrden.save((err, maquinas)=>{
