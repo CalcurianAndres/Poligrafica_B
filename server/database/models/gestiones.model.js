@@ -23,6 +23,14 @@ let GestionSchema = new Schema([{
     hojas:{
         type:String,
         required:true
+    },
+    Rproductos:{
+        type:String,
+        required:true
+    },
+    Rhojas:{
+        type:String,
+        required:true
     }
 
 }]);

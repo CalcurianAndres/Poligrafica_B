@@ -11,7 +11,9 @@ app.post('/api/gestiones', (req,res)=>{
         hojas:body.hojas,
         maquina:body.maquina,
         orden:body.orden,
-        productos:body.productos
+        productos:body.productos,
+        Rproductos:body.Rproductos,
+        Rhojas:body.Rhojas
     });
 
     NuevaGestion.save((err, gestionDB)=>{
@@ -30,7 +32,9 @@ app.get('/api/gestiones', (req, res)=>{
 
 
     // --CONSULTA A LA COLECCION DE GRUPOS--
-    Gestion.find((err, gestionDB)=>{
+    Gestion.find()
+            .populate('maquina')
+            .exec((err, gestionDB)=>{
 
         // --EN CASO DE ERROR--
         if( err ){
