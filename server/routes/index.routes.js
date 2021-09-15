@@ -12,6 +12,7 @@ app.use ( require('./trabajos.routes'));
 app.use ( require('./materiales.routes'));
 app.use ( require('./orden.routes'));
 app.use ( require('./gestiones.routes'));
+app.use ( require('./sustratos.routes'));
 
 
 
