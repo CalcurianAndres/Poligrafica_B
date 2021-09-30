@@ -35,6 +35,10 @@ let OrdenSchema = new Schema([{
                 type:String,
                 required:true
             },
+            demasia: {
+                type:String,
+                required:true
+            },
             sort:{
                 type:String
             }

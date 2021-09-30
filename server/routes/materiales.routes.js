@@ -2,6 +2,7 @@ const express = require('express');
 
 const Material = require('../database/models/material.model');
 const Materia = require('../database/models/mp.model');
+const Sustrato = require('../database/models/sustrato.model');
 
 const app = express();
 
@@ -68,7 +69,23 @@ app.post('/api/nuevo-material', async (req, res)=>{
                     resolve(body.grupo)
                 })
             }else{
-                resolve(body.grupo)
+                if(body.grupo == 'sustrato'){
+                    let newSustrato = new Sustrato({
+                        cantidad:body.cantidad,
+                        material:body.producto
+                    }).save((err, sustrato)=>{
+                        if( err ){
+                            return res.status(400).json({
+                                ok:false,
+                                err
+                            });
+                        }
+
+                        return res.json(sustrato);
+                    })
+                }else{
+                    resolve(body.grupo)
+                }
             }
         })
     }
@@ -78,7 +95,8 @@ app.post('/api/nuevo-material', async (req, res)=>{
     const material = new Material({
         grupo:await definirGrupo(),
         nombre:body.producto,
-        cantidad:body.cantidad
+        cantidad:body.cantidad,
+        unidad:body.unidad
     });
 
     material.save((err, materialDB) => {

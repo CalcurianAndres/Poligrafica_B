@@ -13,9 +13,12 @@ app.post('/api/nuevo-producto', (req, res)=>{
         grupo     :body.grupo,
         producto  :body.producto,
         materiales:body.materiales,
+        ejemplares:body.ejemplares,
         post      :body.post,
-        troquel   :body.troquel,
-        ejemplares:body.ejemplares
+        sustrato  :body.sustrato,
+        dimensiones:body.dimensiones,
+        fibra:body.fibra,
+        codigo:body.codigo
     });
 
     nuevoProducto.save((err, ProductoDB)=>{
@@ -40,7 +43,9 @@ app.get('/api/productos/:id', (req, res)=>{
     let cliente = req.params.id;
 
 
-    Producto.find({cliente:cliente}, (err, productosDB)=>{
+    Producto.find({cliente:cliente})
+        .populate('cliente')
+        .exec((err, productosDB)=>{
         if( err ){
             return res.status(400).json({
                 ok:false,

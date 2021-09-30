@@ -3,6 +3,7 @@ require('./config/.env');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors')
+const convCount = require('../server/database/models/conversiones.model');
 
 //server
 const app = express();
@@ -24,6 +25,7 @@ app.use ('**', (req,res)=>{
 
 //Base de datos
 require('./database/connection');
+
 
 //correr app
 app.listen(process.env.PORT, ()=>{

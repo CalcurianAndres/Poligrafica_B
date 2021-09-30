@@ -59,8 +59,8 @@ ___CSS_LOADER_EXPORT___.push([module.i, "/* Bulma Utilities */\n/*! @creativebul
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Andres\Desktop\Nueva carpeta (2)\Poligrafica_F\src\styles.css */"OmL/");
-module.exports = __webpack_require__(/*! C:\Users\Andres\Desktop\Nueva carpeta (2)\Poligrafica_F\src\styles.scss */"+EN/");
+__webpack_require__(/*! C:\Users\Andres\Desktop\last-update\Poligrafica_F\src\styles.css */"OmL/");
+module.exports = __webpack_require__(/*! C:\Users\Andres\Desktop\last-update\Poligrafica_F\src\styles.scss */"+EN/");
 
 
 /***/ }),

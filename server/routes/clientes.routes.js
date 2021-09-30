@@ -34,7 +34,8 @@ app.post('/api/clientes', (req, res)=>{
 
 // ----SE VACIA EL BODY EN UNA NUEVA CLASE DEL MODELO---
     const NewCliente = new Cliente({
-        nombre: body.nombre
+        nombre: body.nombre,
+        codigo:body.codigo
     })
 
 // ----SE GUARDA LA INFORMACION EN LA BASE DE DATOS---

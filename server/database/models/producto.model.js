@@ -17,13 +17,22 @@ let ProductoFinal = new Schema([{
             materiales: {
                 type:Array
             },
+            ejemplares:{
+                type:String
+            },
             post: {
+                type:Array
+            },
+            sustrato: {
                 type:String
             },
-            troquel: {
+            dimensiones: {
                 type:String
             },
-            ejemplares: {
+            fibra: {
+                type:String
+            },
+            codigo: {
                 type:String
             }
 }]);

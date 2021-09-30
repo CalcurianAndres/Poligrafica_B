@@ -14,7 +14,8 @@ app.post('/api/orden', (req, res)=>{
         cliente:body.cliente,
         orden:body.orden_compra,
         paginas:body.paginas,
-        producto:body.producto
+        producto:body.producto,
+        demasia:body.demasia
     })
 
     

@@ -13,6 +13,9 @@ let MateriaPrima = new Schema([{
             cantidad:{
                 type:Number
             },
+            unidad: {
+                type:String
+            }
 }]);
 
 
